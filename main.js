@@ -7,8 +7,11 @@ let numbers = process.argv
   .slice(3, process.argv.length)
   .map((n) => parseFloat(n));
 
+if (numbers.length === 0) {
+  console.log("Insufficient parameter");
+}
+
 // parameter 개수 적으면 에러
-// 숫자 아니어도 에러 -> exit 1
 if (numbers.some((n) => isNaN(n))) {
   console.log("Some arguments are not numbers!");
   process.exit(1);
